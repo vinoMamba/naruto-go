@@ -1,9 +1,8 @@
 package cmd
 
 import (
-	"fmt"
-
 	"github.com/spf13/cobra"
+	"github.com/vinoMamba/naruto-go/internal/router"
 )
 
 func init() {
@@ -11,7 +10,8 @@ func init() {
 		Use:   "server",
 		Short: "Run Server",
 		Run: func(cmd *cobra.Command, args []string) {
-			fmt.Println("server called")
+			r := router.New()
+			r.Run(":3000")
 		},
 	}
 	rootCmd.AddCommand(srvCmd)
