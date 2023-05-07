@@ -1,6 +1,11 @@
 package main
 
-import "github.com/vinoMamba/naruto-go/cmd"
+import (
+	"log"
+
+	"github.com/spf13/viper"
+	"github.com/vinoMamba/naruto-go/cmd"
+)
 
 // @title            Naruto Go API
 // @version         1.0
@@ -18,5 +23,12 @@ import "github.com/vinoMamba/naruto-go/cmd"
 // @externalDocs.description  OpenAPI
 // @externalDocs.url          https://swagger.io/resources/open-api/
 func main() {
+	viper.SetConfigName(".env")
+	viper.SetConfigType("env")
+	viper.AddConfigPath(".")
+	err := viper.ReadInConfig()
+	if err != nil {
+		log.Fatalln(err)
+	}
 	cmd.Execute()
 }
