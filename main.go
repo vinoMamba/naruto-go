@@ -1,6 +1,8 @@
 package main
 
-import "github.com/vinoMamba/naruto-go/cmd"
+import (
+	"github.com/vinoMamba/naruto-go/cmd"
+)
 
 // @title            Naruto Go API
 // @version         1.0
